@@ -3434,3 +3434,374 @@ Processing by ConferencesController#new as HTML
 Completed 200 OK in 52ms (Views: 47.8ms | ActiveRecord: 0.0ms | Allocations: 6442)
 
 
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:39:17 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 3.8ms | Allocations: 2395)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2742)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 5571)
+Completed 200 OK in 51ms (Views: 46.3ms | Allocations: 6420)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:39:34 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 3.2ms | Allocations: 2398)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2745)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 5583)
+Completed 200 OK in 34ms (Views: 30.6ms | Allocations: 6432)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:40:00 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.6ms | Allocations: 2395)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2742)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 5570)
+Completed 200 OK in 35ms (Views: 31.9ms | Allocations: 6419)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:40:30 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.7ms | Allocations: 2401)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2747)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 5588)
+Completed 200 OK in 38ms (Views: 33.8ms | Allocations: 6437)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:41:36 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 3.0ms | Allocations: 2392)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2739)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 5574)
+Completed 200 OK in 36ms (Views: 31.8ms | Allocations: 6423)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:41:47 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.7ms | Allocations: 2410)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2757)
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 5586)
+Completed 200 OK in 36ms (Views: 31.8ms | Allocations: 6435)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:42:01 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.7ms | Allocations: 2413)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2760)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 5597)
+Completed 200 OK in 21ms (Views: 17.7ms | Allocations: 6446)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:42:30 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.9ms | Allocations: 2386)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2733)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 5560)
+Completed 200 OK in 36ms (Views: 32.1ms | Allocations: 6409)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:42:39 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.4ms | Allocations: 2401)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2752)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 5590)
+Completed 200 OK in 33ms (Views: 30.0ms | Allocations: 6439)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:43:34 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.4ms | Allocations: 2416)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2763)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 5600)
+Completed 200 OK in 36ms (Views: 32.2ms | Allocations: 6449)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:43:47 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 2.4ms | Allocations: 2377)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2724)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5547)
+Completed 200 OK in 34ms (Views: 30.4ms | Allocations: 6396)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-12 19:44:34 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  Rendered conferences/_form.html.erb (Duration: 3.5ms | Allocations: 2416)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2763)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 5654)
+Completed 200 OK in 35ms (Views: 31.9ms | Allocations: 6503)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:44:38 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 15.5ms | Allocations: 1489)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 1.9ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 22.8ms | Allocations: 4610)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 7035)
+Completed 200 OK in 33ms (Views: 29.8ms | ActiveRecord: 1.0ms | Allocations: 7435)
+
+
+Started GET "/" for ::1 at 2022-07-12 19:44:40 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 162)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3156)
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 3923)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:44:41 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1187)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 1.7ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3357)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 5786)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.6ms | Allocations: 6111)
+
+
+Started GET "/" for ::1 at 2022-07-12 19:44:42 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2642)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 2932)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:44:44 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.0ms | Allocations: 1069)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.9ms | Allocations: 1033)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3154)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 5545)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.5ms | Allocations: 5847)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:45:09 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 4.3ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 1.6ms | Allocations: 1035)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4069)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 6890)
+Completed 200 OK in 29ms (Views: 23.5ms | ActiveRecord: 0.5ms | Allocations: 7747)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:45:28 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.8ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.5ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 4062)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 6904)
+Completed 200 OK in 40ms (Views: 35.2ms | ActiveRecord: 0.4ms | Allocations: 7765)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:45:41 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 4.0ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.1ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4075)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 6924)
+Completed 200 OK in 38ms (Views: 34.4ms | ActiveRecord: 0.6ms | Allocations: 7785)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:46:24 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 3.8ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.5ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4081)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 6926)
+Completed 200 OK in 40ms (Views: 35.4ms | ActiveRecord: 0.5ms | Allocations: 7787)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:46:33 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 3.0ms | Allocations: 1069)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.5ms | Allocations: 1033)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3139)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 5531)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.6ms | Allocations: 5853)
+
+
+Started GET "/" for ::1 at 2022-07-12 19:46:35 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 162)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3037)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 3664)
+
+
+Started GET "/" for ::1 at 2022-07-12 19:47:14 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 159)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 3313)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.0ms | Allocations: 4163)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:47:19 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.8ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 1.6ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 4087)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 6671)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 7345)
+
+
+Started GET "/" for ::1 at 2022-07-12 19:47:21 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2602)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 2912)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:47:22 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 1.9ms | Allocations: 1069)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 3.2ms | Allocations: 1033)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3133)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5485)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 5789)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:50:20 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 3.3ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 2.6ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4074)
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | Allocations: 6921)
+Completed 200 OK in 42ms (Views: 37.8ms | ActiveRecord: 0.4ms | Allocations: 7762)
+
+
+Started GET "/conferences" for ::1 at 2022-07-12 19:50:30 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.4ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 3.3ms | Allocations: 1496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  Rendered conferences/_conference.html.erb (Duration: 1.7ms | Allocations: 1034)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4066)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 6911)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 0.6ms | Allocations: 7772)
+
+
