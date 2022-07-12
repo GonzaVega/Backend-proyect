@@ -1,0 +1,17 @@
+<div class="col-md-8 offset-md-2">
+<p style="color: green"><%= notice %></p>
+<h1 style="text-align: center">Conferences</h1>
+<div class="text-center" >
+<%= link_to "New conference", new_conference_path, class:"btn btn-outline-success" %>
+</div>
+<hr>
+</div>
+<div id="conferences">
+  <% @conferences.each do |conference| %>
+    <%= render conference %>
+    
+  <% end %>
+</div>
+
+
+
