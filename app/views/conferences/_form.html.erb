@@ -12,7 +12,7 @@
     </div>
   <% end %>
   <div>
-  <%= form.collection_select(:user, User.all, :id, :username,
+  <%= form.collection_select(:user_id, User.all, :id, :username,
               { prompt: "Select conferece speaker:"}, { multiple: false, size: 4, class: "custom-select shadow rounded" }) %>
 </div>       
   
@@ -32,14 +32,9 @@
   </div>
 
   <div>
-    <%= form.label :speaker, style: "display: block" %>
-    <%= form.number_field :speaker %>
-  </div>
-
-  <div>
-    <%= form.label :attendees, style: "display: block" %>
-    <%= form.number_field :attendees %>
-  </div>
+  <%= form.collection_select(:user_ids, User.all, :id, :username,
+              { prompt: "Select conferece attendees:"}, { multiple: true, size: 4, class: "custom-select shadow rounded" }) %>
+</div>
 
   <div>
     <%= form.submit %>
