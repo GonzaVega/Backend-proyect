@@ -22,7 +22,7 @@ class ConferencesController < ApplicationController
   # POST /conferences or /conferences.json
   def create
     @conference = Conference.new(conference_params)
-
+    
     respond_to do |format|
       if @conference.save
         format.html { redirect_to conference_url(@conference), notice: "Conference was successfully created." }

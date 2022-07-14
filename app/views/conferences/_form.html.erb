@@ -11,8 +11,12 @@
       </ul>
     </div>
   <% end %>
-
   <div>
+  <%= form.collection_select(:user, User.all, :id, :username,
+              { prompt: "Select conferece speaker:"}, { multiple: false, size: 4, class: "custom-select shadow rounded" }) %>
+</div>       
+  
+<div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
