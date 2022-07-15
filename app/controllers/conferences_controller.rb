@@ -5,6 +5,16 @@ class ConferencesController < ApplicationController
   def index
     @conferences = Conference.all
   end
+  
+  def search
+    if params[:search].blank?
+        flash[:alert] = "Please enter a search first"
+        redirect_to copnference_path and return
+    else
+        @parameter = params[:search].downcase
+        @results = Conference.all.where("lower(title || room) LIKE :search", search: "%#{@parameter}%")
+    end
+end
 
   # GET /conferences/1 or /conferences/1.json
   def show
@@ -22,10 +32,10 @@ class ConferencesController < ApplicationController
   # POST /conferences or /conferences.json
   def create
     @conference = Conference.new(conference_params)
-
+    
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to conference_url(@conference), notice: "Conference was successfully created." }
+        format.html { redirect_to conference_url(@conference), notice: " The Conference was successfully created!" }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +48,7 @@ class ConferencesController < ApplicationController
   def update
     respond_to do |format|
       if @conference.update(conference_params)
-        format.html { redirect_to conference_url(@conference), notice: "Conference was successfully updated." }
+        format.html { redirect_to conference_url(@conference), notice: "The Conference was successfully updated!" }
         format.json { render :show, status: :ok, location: @conference }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +62,7 @@ class ConferencesController < ApplicationController
     @conference.destroy
 
     respond_to do |format|
-      format.html { redirect_to conferences_url, notice: "Conference was successfully destroyed." }
+      format.html { redirect_to conferences_url, notice: "The selected conference was deleted successfully" }
       format.json { head :no_content }
     end
   end
@@ -65,6 +75,6 @@ class ConferencesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def conference_params
-      params.require(:conference).permit(:title, :abstract, :room, :speaker, :attendees)
+      params.require(:conference).permit(:title, :abstract, :room, :user_id, user_ids: [])
     end
 end
