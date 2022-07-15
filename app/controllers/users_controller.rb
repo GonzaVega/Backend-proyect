@@ -7,15 +7,15 @@ class UsersController < ApplicationController
         # .paginate(page: params[:page], per_page: 5) 
     end
 
-    # def search
-    #     if params[:search].blank?
-    #         flash[:alert] = "Please enter a search first"
-    #         redirect_to users_path and return
-    #     else
-    #         @parameter = params[:search].downcase
-    #         @results = User.all.where("lower(username) LIKE :search", search: "%#{@parameter}%")
-    #     end
-    # end
+    def search
+        if params[:search].blank?
+            flash[:alert] = "Please enter a search first"
+            redirect_to users_path and return
+        else
+            @parameter = params[:search].downcase
+            @results = User.all.where("lower(username || company) LIKE :search", search: "%#{@parameter}%")
+        end
+    end
 
     def index
         @users = User.all

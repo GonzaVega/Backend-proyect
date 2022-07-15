@@ -5,6 +5,16 @@ class ConferencesController < ApplicationController
   def index
     @conferences = Conference.all
   end
+  
+  def search
+    if params[:search].blank?
+        flash[:alert] = "Please enter a search first"
+        redirect_to copnference_path and return
+    else
+        @parameter = params[:search].downcase
+        @results = Conference.all.where("lower(title || room) LIKE :search", search: "%#{@parameter}%")
+    end
+end
 
   # GET /conferences/1 or /conferences/1.json
   def show
