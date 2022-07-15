@@ -25,7 +25,7 @@ class ConferencesController < ApplicationController
     
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to conference_url(@conference), notice: "Conference was successfully created." }
+        format.html { redirect_to conference_url(@conference), notice: " The Conference was successfully created!" }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class ConferencesController < ApplicationController
   def update
     respond_to do |format|
       if @conference.update(conference_params)
-        format.html { redirect_to conference_url(@conference), notice: "Conference was successfully updated." }
+        format.html { redirect_to conference_url(@conference), notice: "The Conference was successfully updated!" }
         format.json { render :show, status: :ok, location: @conference }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ConferencesController < ApplicationController
     @conference.destroy
 
     respond_to do |format|
-      format.html { redirect_to conferences_url, notice: "Conference was successfully destroyed." }
+      format.html { redirect_to conferences_url, notice: "The selected conference was deleted successfully" }
       format.json { head :no_content }
     end
   end

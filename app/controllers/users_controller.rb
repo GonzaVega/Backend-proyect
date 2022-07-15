@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         flash[:notice] = "Account and all associated articles where successfully deleted"
-        redirect_to conferences_path
+        redirect_to users_path
     end
 
     private
