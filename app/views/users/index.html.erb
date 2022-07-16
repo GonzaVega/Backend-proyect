@@ -1,5 +1,5 @@
 <div class="col-md-6 offset-md-2">
-<h1 class="text-center mt-4">Speakers:</h1>
+<h1 class="text-center mt-4">Users:</h1>
 </div>
 <div class="container">
 <%= form_tag search_users_path, method: :get do %>
@@ -27,7 +27,9 @@
           </div>
           <div class="card-footer text-muted">
             <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
-          </div>
+          
+            </div>
+            <%= link_to "[Back to Users listing]", users_path %>
         </div>
       </div>
     </div>

@@ -24774,3 +24774,1902 @@ Migrating to AddConferenceColumnToUsers (20220714010219)
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-07-15 19:09:26 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 352)
+  Rendered layout layouts/application.html.erb (Duration: 103.2ms | Allocations: 40523)
+Completed 200 OK in 136ms (Views: 111.4ms | ActiveRecord: 0.0ms | Allocations: 43775)
+
+
+Started GET "/conferences" for ::1 at 2022-07-15 19:09:28 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.4ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 137.0ms | Allocations: 14681)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.5ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 172.2ms | Allocations: 23338)
+  Rendered layout layouts/application.html.erb (Duration: 178.7ms | Allocations: 25973)
+Completed 200 OK in 231ms (Views: 179.5ms | ActiveRecord: 2.7ms | Allocations: 29408)
+
+
+Started GET "/search/conferences?search=ci&commit=Search" for ::1 at 2022-07-15 19:09:33 -0300
+Processing by ConferencesController#search as HTML
+  Parameters: {"search"=>"ci", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/search.html.erb within layouts/application
+  [1m[36mConference Load (0.7ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE (lower(title || room) LIKE '%ci%')[0m
+  ↳ app/views/conferences/search.html.erb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/search.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/search.html.erb:15:in `map'
+  Rendered conferences/search.html.erb within layouts/application (Duration: 34.2ms | Allocations: 2787)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 5466)
+Completed 200 OK in 45ms (Views: 40.3ms | ActiveRecord: 1.2ms | Allocations: 5959)
+
+
+Started GET "/users" for ::1 at 2022-07-15 19:09:34 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 29.3ms | Allocations: 4476)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 7455)
+Completed 200 OK in 44ms (Views: 38.8ms | ActiveRecord: 0.9ms | Allocations: 8311)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:07:29 -0300
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.6ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 36.2ms | Allocations: 14621)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.5ms | Allocations: 1771)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 57.1ms | Allocations: 23677)
+  Rendered layout layouts/application.html.erb (Duration: 146.0ms | Allocations: 63422)
+Completed 200 OK in 191ms (Views: 152.7ms | ActiveRecord: 2.8ms | Allocations: 69224)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-16 16:07:38 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  Rendered conferences/_form.html.erb (Duration: 73.5ms | Allocations: 6374)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 86.7ms | Allocations: 6736)
+  Rendered layout layouts/application.html.erb (Duration: 92.5ms | Allocations: 9277)
+Completed 200 OK in 97ms (Views: 92.9ms | ActiveRecord: 0.3ms | Allocations: 9770)
+
+
+Started POST "/conferences" for ::1 at 2022-07-16 16:07:53 -0300
+Processing by ConferencesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"3", "title"=>"prueba prueba1", "abstract"=>"sadgfdggfg", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Create Conference"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:34:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mConference Create (1.2ms)[0m  [1m[32mINSERT INTO "conferences" ("title", "abstract", "room", "attendees", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "prueba prueba1"], ["abstract", "sadgfdggfg"], ["room", 3], ["attendees", nil], ["created_at", "2022-07-16 19:07:53.061875"], ["updated_at", "2022-07-16 19:07:53.061875"], ["user_id", 3]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:07:53.072499"], ["conference_id", 3], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:07:53.078310"], ["conference_id", 3], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+Redirected to http://[::1]:3000/conferences/3
+Completed 302 Found in 41ms (ActiveRecord: 5.7ms | Allocations: 17504)
+
+
+Started GET "/conferences/3" for ::1 at 2022-07-16 16:07:53 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1891)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2475)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 4997)
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 0.7ms | Allocations: 6589)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:07:55 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.7ms | Allocations: 1798)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.2ms | Allocations: 1752)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.5ms | Allocations: 1825)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 6715)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 9178)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 1.4ms | Allocations: 9490)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:12:36 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 10.1ms | Allocations: 2277)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.9ms | Allocations: 1752)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.2ms | Allocations: 1844)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 40.7ms | Allocations: 7866)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 10857)
+Completed 200 OK in 58ms (Views: 52.8ms | ActiveRecord: 1.3ms | Allocations: 11706)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:13:51 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:34:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:34:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:34:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 52.6ms | Allocations: 7212)
+  Rendered layout layouts/application.html.erb (Duration: 59.1ms | Allocations: 10165)
+Completed 200 OK in 69ms (Views: 63.5ms | ActiveRecord: 1.3ms | Allocations: 11028)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:14:30 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:34:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:34:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:34:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 54.0ms | Allocations: 7206)
+  Rendered layout layouts/application.html.erb (Duration: 60.6ms | Allocations: 10159)
+Completed 200 OK in 69ms (Views: 64.6ms | ActiveRecord: 1.3ms | Allocations: 11021)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:15:41 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 89.1ms | Allocations: 7203)
+  Rendered layout layouts/application.html.erb (Duration: 96.8ms | Allocations: 10203)
+Completed 200 OK in 108ms (Views: 101.5ms | ActiveRecord: 1.6ms | Allocations: 11065)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:15:58 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.4ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 50.9ms | Allocations: 7201)
+  Rendered layout layouts/application.html.erb (Duration: 57.4ms | Allocations: 10198)
+Completed 200 OK in 66ms (Views: 60.8ms | ActiveRecord: 1.6ms | Allocations: 11060)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:16:06 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 48.4ms | Allocations: 7215)
+  Rendered layout layouts/application.html.erb (Duration: 55.9ms | Allocations: 10168)
+Completed 200 OK in 64ms (Views: 59.2ms | ActiveRecord: 1.2ms | Allocations: 11030)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:16:33 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 48.8ms | Allocations: 7208)
+  Rendered layout layouts/application.html.erb (Duration: 55.7ms | Allocations: 10162)
+Completed 200 OK in 63ms (Views: 58.8ms | ActiveRecord: 1.3ms | Allocations: 11035)
+
+
+Started GET "/users" for ::1 at 2022-07-16 16:16:44 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 30.9ms | Allocations: 3814)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 6786)
+Completed 200 OK in 43ms (Views: 39.2ms | ActiveRecord: 1.1ms | Allocations: 7629)
+
+
+Started GET "/users" for ::1 at 2022-07-16 16:17:17 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 34.3ms | Allocations: 3622)
+  Rendered layout layouts/application.html.erb (Duration: 42.4ms | Allocations: 6865)
+Completed 200 OK in 50ms (Views: 46.1ms | ActiveRecord: 0.9ms | Allocations: 7718)
+
+
+Started GET "/users" for ::1 at 2022-07-16 16:18:16 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 36.6ms | Allocations: 3620)
+  Rendered layout layouts/application.html.erb (Duration: 43.7ms | Allocations: 6860)
+Completed 200 OK in 51ms (Views: 47.3ms | ActiveRecord: 1.0ms | Allocations: 7698)
+
+
+Started GET "/users" for ::1 at 2022-07-16 16:18:27 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 34.2ms | Allocations: 3620)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 6860)
+Completed 200 OK in 52ms (Views: 45.9ms | ActiveRecord: 1.2ms | Allocations: 7698)
+
+
+Started GET "/signup" for ::1 at 2022-07-16 16:18:31 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_errors.html.erb (Duration: 8.6ms | Allocations: 212)
+  Rendered users/_form.html.erb (Duration: 110.2ms | Allocations: 12192)
+  Rendered users/new.html.erb within layouts/application (Duration: 128.4ms | Allocations: 12833)
+  Rendered layout layouts/application.html.erb (Duration: 134.0ms | Allocations: 15425)
+Completed 200 OK in 138ms (Views: 134.7ms | ActiveRecord: 0.0ms | Allocations: 15849)
+
+
+Started POST "/users" for ::1 at 2022-07-16 16:19:07 -0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"prueba3", "email"=>"prueba3@test.com", "bio"=>"bio bio", "company"=>"company SA", "password_digest"=>"[FILTERED]"}, "commit"=>"Sign up!"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:43:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "prueba3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "prueba3@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "bio", "company", "password_digest", "conference_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "prueba3"], ["email", "prueba3@test.com"], ["created_at", "2022-07-16 19:19:07.926158"], ["updated_at", "2022-07-16 19:19:07.926158"], ["bio", "bio bio"], ["company", "company SA"], ["password_digest", "[FILTERED]"], ["conference_id", nil]]
+  ↳ app/controllers/users_controller.rb:43:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:43:in `create'
+Redirected to http://[::1]:3000/conferences
+Completed 302 Found in 15ms (ActiveRecord: 4.6ms | Allocations: 4336)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:19:07 -0300
+Processing by ConferencesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 7246)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 9907)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 1.2ms | Allocations: 10643)
+
+
+Started GET "/users" for ::1 at 2022-07-16 16:19:16 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3920)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 6586)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.9ms | Allocations: 6908)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:19:23 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 6290)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8708)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 1.3ms | Allocations: 9012)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-16 16:19:28 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  Rendered conferences/_form.html.erb (Duration: 6.9ms | Allocations: 4125)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 4443)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 6876)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 7256)
+
+
+Started POST "/conferences" for ::1 at 2022-07-16 16:19:39 -0300
+Processing by ConferencesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"4", "title"=>"fdsgfdag", "abstract"=>"fasdfsdfsdfsd", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Create Conference"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:34:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mConference Create (0.9ms)[0m  [1m[32mINSERT INTO "conferences" ("title", "abstract", "room", "attendees", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "fdsgfdag"], ["abstract", "fasdfsdfsdfsd"], ["room", 3], ["attendees", nil], ["created_at", "2022-07-16 19:19:39.770431"], ["updated_at", "2022-07-16 19:19:39.770431"], ["user_id", 4]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:19:39.778445"], ["conference_id", 4], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:19:39.783539"], ["conference_id", 4], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+Redirected to http://[::1]:3000/conferences/4
+Completed 302 Found in 34ms (ActiveRecord: 5.8ms | Allocations: 14316)
+
+
+Started GET "/conferences/4" for ::1 at 2022-07-16 16:19:39 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 11.4ms | Allocations: 2160)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 13.7ms | Allocations: 2786)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 5204)
+Completed 200 OK in 26ms (Views: 20.4ms | ActiveRecord: 0.8ms | Allocations: 6072)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:19:41 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 8028)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 10446)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 1.6ms | Allocations: 10748)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:22:40 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 8954)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 11907)
+Completed 200 OK in 34ms (Views: 28.7ms | ActiveRecord: 1.8ms | Allocations: 12748)
+
+
+Started GET "/users" for ::1 at 2022-07-16 16:22:44 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/index.html.erb:23
+  [1m[36mConference Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "conferences" WHERE "conferences"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/users/index.html.erb:23
+  Rendered users/index.html.erb within layouts/application (Duration: 40.0ms | Allocations: 4661)
+  Rendered layout layouts/application.html.erb (Duration: 46.1ms | Allocations: 7584)
+Completed 200 OK in 53ms (Views: 48.4ms | ActiveRecord: 1.0ms | Allocations: 8233)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:23:13 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.4ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 20.6ms | Allocations: 8057)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 10514)
+Completed 200 OK in 31ms (Views: 26.0ms | ActiveRecord: 2.2ms | Allocations: 10837)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:23:24 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:30
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:35:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 56.3ms | Allocations: 8938)
+  Rendered layout layouts/application.html.erb (Duration: 65.3ms | Allocations: 11891)
+Completed 200 OK in 74ms (Views: 68.3ms | ActiveRecord: 1.7ms | Allocations: 12749)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:23:54 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 57.1ms | Allocations: 8974)
+  Rendered layout layouts/application.html.erb (Duration: 65.2ms | Allocations: 11927)
+Completed 200 OK in 75ms (Views: 68.5ms | ActiveRecord: 2.1ms | Allocations: 12789)
+
+
+Started GET "/conferences/new" for ::1 at 2022-07-16 16:24:04 -0300
+Processing by ConferencesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  Rendered conferences/_form.html.erb (Duration: 9.9ms | Allocations: 4146)
+  Rendered conferences/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4463)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 6933)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.3ms | Allocations: 7316)
+
+
+Started POST "/conferences" for ::1 at 2022-07-16 16:24:20 -0300
+Processing by ConferencesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"3", "title"=>"prueba5", "abstract"=>"kbvkygvkyt", "room"=>"8", "user_ids"=>["", "1", "3", "4"]}, "commit"=>"Create Conference"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?, ?)[0m  [["id", 1], ["id", 3], ["id", 4]]
+  ↳ app/controllers/conferences_controller.rb:34:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "prueba3"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "prueba3@test.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mConference Create (1.3ms)[0m  [1m[32mINSERT INTO "conferences" ("title", "abstract", "room", "attendees", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "prueba5"], ["abstract", "kbvkygvkyt"], ["room", 8], ["attendees", nil], ["created_at", "2022-07-16 19:24:20.668591"], ["updated_at", "2022-07-16 19:24:20.668591"], ["user_id", 3]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:24:20.675641"], ["conference_id", 5], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:24:20.680989"], ["conference_id", 5], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "prueba3"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "prueba3@test.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:24:20.686466"], ["conference_id", 5], ["id", 4]]
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:37:in `block in create'
+Redirected to http://[::1]:3000/conferences/5
+Completed 302 Found in 42ms (ActiveRecord: 6.5ms | Allocations: 19311)
+
+
+Started GET "/conferences/5" for ::1 at 2022-07-16 16:24:20 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.0ms | Allocations: 2183)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2813)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 5274)
+Completed 200 OK in 18ms (Views: 12.6ms | ActiveRecord: 0.7ms | Allocations: 6181)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:24:22 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 9734)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 12191)
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 1.6ms | Allocations: 12494)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:24:30 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 20.2ms | Allocations: 9736)
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 12161)
+Completed 200 OK in 32ms (Views: 27.6ms | ActiveRecord: 2.0ms | Allocations: 12460)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:27:40 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 58.5ms | Allocations: 10672)
+  Rendered layout layouts/application.html.erb (Duration: 65.6ms | Allocations: 13625)
+Completed 200 OK in 74ms (Views: 68.5ms | ActiveRecord: 2.2ms | Allocations: 14466)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:28:14 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 60.3ms | Allocations: 10689)
+  Rendered layout layouts/application.html.erb (Duration: 68.4ms | Allocations: 13683)
+Completed 200 OK in 77ms (Views: 70.7ms | ActiveRecord: 2.1ms | Allocations: 14546)
+
+
+Started GET "/conferences/4/edit" for ::1 at 2022-07-16 16:30:16 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 8.2ms | Allocations: 4863)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 23.1ms | Allocations: 5244)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 7669)
+Completed 200 OK in 35ms (Views: 30.2ms | ActiveRecord: 0.7ms | Allocations: 8534)
+
+
+Started PATCH "/conferences/4" for ::1 at 2022-07-16 16:30:21 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"4", "title"=>"fdsgfdag", "abstract"=>"fasdfsdfsdfsd", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"4"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (11.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:21.283345"], ["conference_id", 4], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:21.301761"], ["conference_id", 4], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/4
+Completed 302 Found in 38ms (ActiveRecord: 15.4ms | Allocations: 10886)
+
+
+Started GET "/conferences/4" for ::1 at 2022-07-16 16:30:21 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.3ms | Allocations: 2173)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2800)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 5218)
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.6ms | Allocations: 6116)
+
+
+Started GET "/conferences/4" for ::1 at 2022-07-16 16:30:22 -0300
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.3ms | Allocations: 1838)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2175)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4593)
+Completed 200 OK in 16ms (Views: 11.4ms | ActiveRecord: 0.7ms | Allocations: 5374)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:30:24 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 9736)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 12201)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 1.7ms | Allocations: 12504)
+
+
+Started GET "/conferences/3/edit" for ::1 at 2022-07-16 16:30:31 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 6.5ms | Allocations: 4146)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 6.9ms | Allocations: 4294)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 6715)
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.6ms | Allocations: 7496)
+
+
+Started PATCH "/conferences/3" for ::1 at 2022-07-16 16:30:33 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"3", "title"=>"prueba prueba1", "abstract"=>"sadgfdggfg", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"3"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (12.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:33.917790"], ["conference_id", 3], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:33.936314"], ["conference_id", 3], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/3
+Completed 302 Found in 38ms (ActiveRecord: 15.9ms | Allocations: 10708)
+
+
+Started GET "/conferences/3" for ::1 at 2022-07-16 16:30:33 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.2ms | Allocations: 1838)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2198)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4657)
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 0.6ms | Allocations: 5440)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:30:37 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 9775)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 12200)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 1.6ms | Allocations: 12502)
+
+
+Started GET "/conferences/2/edit" for ::1 at 2022-07-16 16:30:40 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 7.4ms | Allocations: 4137)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 7.9ms | Allocations: 4285)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 6711)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.9ms | Allocations: 7492)
+
+
+Started PATCH "/conferences/2" for ::1 at 2022-07-16 16:30:43 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"1", "title"=>"dsaf", "abstract"=>"sadfsda", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (10.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:43.916368"], ["conference_id", 2], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:43.933946"], ["conference_id", 2], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  Rendered conferences/_form.html.erb (Duration: 7.0ms | Allocations: 5298)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 7.5ms | Allocations: 5446)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 7902)
+Completed 422 Unprocessable Entity in 49ms (Views: 14.2ms | ActiveRecord: 13.0ms | Allocations: 19521)
+
+
+Started PATCH "/conferences/2" for ::1 at 2022-07-16 16:30:54 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"1", "title"=>"dsafASDCSADC", "abstract"=>"sadfsdacZXCxzCxz", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:54.434152"], ["conference_id", 2], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:30:54.440817"], ["conference_id", 2], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mConference Update (0.1ms)[0m  [1m[33mUPDATE "conferences" SET "title" = ?, "abstract" = ?, "updated_at" = ? WHERE "conferences"."id" = ?[0m  [["title", "dsafASDCSADC"], ["abstract", "sadfsdacZXCxzCxz"], ["updated_at", "2022-07-16 19:30:54.444414"], ["id", 2]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/2
+Completed 302 Found in 31ms (ActiveRecord: 5.6ms | Allocations: 11436)
+
+
+Started GET "/conferences/2" for ::1 at 2022-07-16 16:30:54 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.1ms | Allocations: 1832)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2207)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4625)
+Completed 200 OK in 16ms (Views: 11.7ms | ActiveRecord: 0.5ms | Allocations: 5407)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:30:56 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 9757)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 12187)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 1.7ms | Allocations: 12489)
+
+
+Started GET "/conferences/1/edit" for ::1 at 2022-07-16 16:30:59 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 6.5ms | Allocations: 4142)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4290)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 6750)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.6ms | Allocations: 7531)
+
+
+Started PATCH "/conferences/1" for ::1 at 2022-07-16 16:31:01 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"1", "title"=>"CILLUM NON", "abstract"=>"Aliqua consequat mollit Lorem dolor nulla qui sunt tempor veniam eiusmod ullamco quis commodo.", "room"=>"2", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"1"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:31:01.994806"], ["conference_id", 1], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:31:02.002305"], ["conference_id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/1
+Completed 302 Found in 26ms (ActiveRecord: 5.8ms | Allocations: 10730)
+
+
+Started GET "/conferences/1" for ::1 at 2022-07-16 16:31:02 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.8ms | Allocations: 1839)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2232)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4657)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.6ms | Allocations: 5439)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:31:03 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:22
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/index.html.erb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/index.html.erb:32:in `map'
+  Rendered conferences/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 9733)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 12191)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 1.6ms | Allocations: 12493)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:32:26 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.9ms | Allocations: 2315)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.0ms | Allocations: 1751)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1797)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.8ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 26.9ms | Allocations: 11580)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 14541)
+Completed 200 OK in 43ms (Views: 36.8ms | ActiveRecord: 2.3ms | Allocations: 15381)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:33:06 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.1ms | Allocations: 2315)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 5.0ms | Allocations: 1751)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 5.6ms | Allocations: 1797)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.4ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.5ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 48.0ms | Allocations: 11577)
+  Rendered layout layouts/application.html.erb (Duration: 56.6ms | Allocations: 14567)
+Completed 200 OK in 65ms (Views: 58.9ms | ActiveRecord: 2.4ms | Allocations: 15429)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:33:23 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 5.7ms | Allocations: 2315)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 2.7ms | Allocations: 1751)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.1ms | Allocations: 1797)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.7ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.4ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 41.0ms | Allocations: 11602)
+  Rendered layout layouts/application.html.erb (Duration: 47.3ms | Allocations: 14597)
+Completed 200 OK in 55ms (Views: 49.4ms | ActiveRecord: 2.3ms | Allocations: 15459)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:33:52 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 5.6ms | Allocations: 2315)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.7ms | Allocations: 1751)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.9ms | Allocations: 1797)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.7ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.4ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 45.0ms | Allocations: 11574)
+  Rendered layout layouts/application.html.erb (Duration: 52.5ms | Allocations: 14565)
+Completed 200 OK in 61ms (Views: 55.9ms | ActiveRecord: 2.0ms | Allocations: 15427)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:34:23 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.4ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 6.9ms | Allocations: 2375)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1751)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.3ms | Allocations: 1797)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.0ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 6.9ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 47.0ms | Allocations: 11569)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 14568)
+Completed 200 OK in 63ms (Views: 57.2ms | ActiveRecord: 2.3ms | Allocations: 15430)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:34:40 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 5.5ms | Allocations: 2315)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1751)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.3ms | Allocations: 1797)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.1ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 28.8ms | Allocations: 11575)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | Allocations: 14570)
+Completed 200 OK in 46ms (Views: 38.3ms | ActiveRecord: 2.1ms | Allocations: 15432)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:35:32 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.6ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 32.7ms | Allocations: 15332)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.6ms | Allocations: 1771)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.3ms | Allocations: 1797)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.5ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.1ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 63.0ms | Allocations: 30018)
+  Rendered layout layouts/application.html.erb (Duration: 143.5ms | Allocations: 69768)
+Completed 200 OK in 180ms (Views: 147.1ms | ActiveRecord: 3.8ms | Allocations: 75572)
+
+
+Started GET "/conferences/2/edit" for ::1 at 2022-07-16 16:35:44 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 22.2ms | Allocations: 7243)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 24.1ms | Allocations: 7669)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 10196)
+Completed 200 OK in 39ms (Views: 32.2ms | ActiveRecord: 0.9ms | Allocations: 11891)
+
+
+Started PATCH "/conferences/2" for ::1 at 2022-07-16 16:35:49 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"1", "title"=>"dsafASDCSADC", "abstract"=>"sadfsdacZXCxzCxz", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (11.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:35:49.228165"], ["conference_id", 2], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:35:49.246679"], ["conference_id", 2], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/2
+Completed 302 Found in 42ms (ActiveRecord: 15.0ms | Allocations: 13241)
+
+
+Started GET "/conferences/2" for ::1 at 2022-07-16 16:35:49 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.0ms | Allocations: 1898)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2488)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 5010)
+Completed 200 OK in 18ms (Views: 13.2ms | ActiveRecord: 0.6ms | Allocations: 5971)
+
+
+Started GET "/conferences/2/edit" for ::1 at 2022-07-16 16:35:51 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 7.3ms | Allocations: 4218)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 7.7ms | Allocations: 4374)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 6836)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 0.6ms | Allocations: 7618)
+
+
+Started PATCH "/conferences/2" for ::1 at 2022-07-16 16:35:52 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"1", "title"=>"dsafASDCSADC", "abstract"=>"sadfsdacZXCxzCxz", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/2
+Completed 302 Found in 15ms (ActiveRecord: 0.9ms | Allocations: 4769)
+
+
+Started GET "/conferences/2" for ::1 at 2022-07-16 16:35:52 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.4ms | Allocations: 1838)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2209)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4628)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.6ms | Allocations: 5413)
+
+
+Started GET "/conferences/2" for ::1 at 2022-07-16 16:35:53 -0300
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.3ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.8ms | Allocations: 1839)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2170)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4625)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.9ms | Allocations: 5421)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:35:54 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.1ms | Allocations: 1795)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.7ms | Allocations: 1790)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.2ms | Allocations: 1797)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.2ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.1ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 21.7ms | Allocations: 10461)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 12887)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 1.6ms | Allocations: 13190)
+
+
+Started GET "/conferences/3/edit" for ::1 at 2022-07-16 16:35:57 -0300
+Processing by ConferencesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/conferences/_form.html.erb:45
+  [1m[36mUser Pluck (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_form.html.erb:47
+  Rendered conferences/_form.html.erb (Duration: 7.6ms | Allocations: 4150)
+  Rendered conferences/edit.html.erb within layouts/application (Duration: 8.1ms | Allocations: 4298)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 6716)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.7ms | Allocations: 7497)
+
+
+Started PATCH "/conferences/3" for ::1 at 2022-07-16 16:36:00 -0300
+Processing by ConferencesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "conference"=>{"user_id"=>"3", "title"=>"prueba prueba1", "abstract"=>"sadgfdggfg", "room"=>"3", "user_ids"=>["", "1", "3"]}, "commit"=>"Update Conference", "id"=>"3"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 1], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Gonza Vega"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "gonza@test.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (7.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:36:00.278569"], ["conference_id", 3], ["id", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "Chucha1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "chucha@test.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "conference_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-07-16 19:36:00.291285"], ["conference_id", 3], ["id", 3]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/conferences_controller.rb:50:in `block in update'
+Redirected to http://[::1]:3000/conferences/3
+Completed 302 Found in 36ms (ActiveRecord: 11.1ms | Allocations: 10724)
+
+
+Started GET "/conferences/3" for ::1 at 2022-07-16 16:36:00 -0300
+Processing by ConferencesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/conferences_controller.rb:73:in `set_conference'
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.5ms | Allocations: 1838)
+  Rendered conferences/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2197)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4615)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.5ms | Allocations: 5397)
+
+
+Started GET "/conferences" for ::1 at 2022-07-16 16:36:01 -0300
+Processing by ConferencesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering conferences/index.html.erb within layouts/application
+  [1m[36mConference Load (0.2ms)[0m  [1m[34mSELECT "conferences".* FROM "conferences"[0m
+  ↳ app/views/conferences/index.html.erb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 1]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.3ms | Allocations: 1795)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 2]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.0ms | Allocations: 1751)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 3]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.5ms | Allocations: 1837)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 4]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 4.1ms | Allocations: 1797)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/conferences/_conference.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."conference_id" = ?[0m  [["conference_id", 5]]
+  ↳ app/views/conferences/_conference.html.erb:10:in `map'
+  Rendered conferences/_conference.html.erb (Duration: 3.1ms | Allocations: 1770)
+  Rendered conferences/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 10447)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 12865)
+Completed 200 OK in 31ms (Views: 27.0ms | ActiveRecord: 1.9ms | Allocations: 13167)
+
+
