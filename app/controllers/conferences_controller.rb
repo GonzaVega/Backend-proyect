@@ -8,8 +8,8 @@ class ConferencesController < ApplicationController
   
   def search
     if params[:search].blank?
-        flash[:alert] = "Please enter a search first"
-        redirect_to copnference_path and return
+      redirect_to conferences_path and return
+      
     else
         @parameter = params[:search].downcase
         @results = Conference.all.where("lower(title || room) LIKE :search", search: "%#{@parameter}%")
@@ -35,7 +35,7 @@ end
     
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to conference_url(@conference), notice: " The Conference was successfully created!" }
+        format.html { redirect_to conference_url(@conference), notice: "The Conference was successfully created!" }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new, status: :unprocessable_entity }

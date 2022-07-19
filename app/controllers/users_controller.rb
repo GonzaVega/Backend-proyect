@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def search
         if params[:search].blank?
-            flash[:alert] = "Please enter a search first"
+            
             redirect_to users_path and return
         else
             @parameter = params[:search].downcase
